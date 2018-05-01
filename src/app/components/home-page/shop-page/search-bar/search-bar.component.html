@@ -1,0 +1,19 @@
+<div class = "container-fluid">
+  <div col align-self-center>
+    <nav class="navbar navbar-light nav justify-content-center">
+      <form id="search" class="form-inline my-2 my-lg-0">
+          <select name="category-selected" class="dropdown btn btn-light dropdown-toggle mr-0 col-md-2 col-lg-2 col-sm-2" [(ngModel)]="category">
+            <option class="dropdown-item" selected>All</option>
+            <option class="dropdown-item">sports</option>
+            <option class="dropdown-item">clothing</option>
+            <option class="dropdown-item">food</option>
+          </select>
+        <input id="input" list="suggestions" name="query" [(ngModel)]="query" class="form-control mr-0 search-box col-md-4 col-lg-8 col-sm-2" (keyup)="searchTerm$.next($event.target.value)" autocomplete="off" type="text"
+        placeholder="Search for your favorite deals here" aria-label="Search">
+        <!-- search button -->
+        <!-- on click of button show values for category and field-->
+          <button id="searchButton" [routerLink] ="['/search/',category,query]" type="button" (click)="showValue()" class="btn btn-light search-btn col-md-1 col-sm-1 col-lg-2"><i class="fas fa-search"></i></button>
+      </form>
+    </nav>
+  </div>
+</div>

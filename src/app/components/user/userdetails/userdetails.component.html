@@ -1,0 +1,104 @@
+
+
+<div class="py-5 px-2 xyz">
+  <div class="container abc d-flex align-items-center justify-content-center">
+    <div class="row border rounded p-2">
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="firstName"> First Name</label>
+            <input type="firstName" class="form-control" id="firstName" placeholder="{{firstName}}" disabled [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastName">Last Name</label>
+            <input type="lastName" class="form-control" id="lastName" placeholder="{{lastName}}" disabled [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="phone"> Contact Number</label>
+            <input type="phone" class="form-control" id="phone" placeholder="{{phone}}" disabled [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="emailId">Email Id</label>
+            <input type="emailId" class="form-control" id="emailId" placeholder="{{emailId}}" disabled [(ngModel)]="emailId" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="{{street}}" disabled [(ngModel)]="street" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <!-- <input type="text" class="form-control" id="inputCity" placeholder="{{city}}" disabled [(ngModel)]="city" [ngModelOptions]="{standalone: true}"> -->
+            
+            <select name=slist class="form-control" id="inputCity" disabled [(ngModel)]="city" [ngModelOptions]="{standalone: true}">
+              <option value="">{{city}}</option>
+              <option *ngFor="let city of cities" value={{city}}>{{city}}</option>
+            </select>
+
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <!-- <input type="text" class="form-control" id="inputState" placeholder="{{state}}" disabled [(ngModel)]="state" [ngModelOptions]="{standalone: true}"> -->
+            <select name=slist class="form-control" id="inputState" disabled [(ngModel)]="state" [ngModelOptions]="{standalone: true}">
+             <option value="">{{state}}</option>
+             <option *ngFor="let state of states" value={{state}}>{{state}}</option>
+           </select>
+         </div>
+         <div class="form-group col-md-2">
+          <label for="inputZip">Zip</label>
+          <input type="text" class="form-control" id="inputZip" placeholder="{{zip}}" disabled [(ngModel)]="zip" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <!-- If user has fill all the above form then the below form will be enabled-->
+      <div *ngIf="firstName && lastName && phone && emailId && street && city && state && zip">
+        <hr/>
+        <div class="form-group">
+          <label for="inputShopName">Shop Name</label>
+          <input type="text" class="form-control" id="inputShopName" placeholder="{{shopName}}" disabled [(ngModel)]="shopName" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="checkbox pb-2">
+          <input type="checkbox" (click)="setCheckboxAddress()" id="SameCheckbox" value="SameAsAbove"> Same as above
+        </div>
+        <div class="form-group">
+          <label for="inputShopAddress">Shop's Address</label>
+          <input type="text" class="form-control" id="inputShopAddress" placeholder="{{shopStreet}}" disabled [(ngModel)]="shopStreet" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputShopCity">Shop's City</label>
+            <!-- <input type="text" class="form-control" id="inputShopCity" placeholder="{{shopCity}}" disabled [(ngModel)]="shopCity" [ngModelOptions]="{standalone: true}"> -->
+            <select name=slist class="form-control" id="inputShopCity" disabled [(ngModel)]="shopCity" [ngModelOptions]="{standalone: true}">
+              <option value=""></option>
+              <option *ngFor="let city of cities" value={{city}}>{{city}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <div *ngIf="shopCity==city">
+              {{setShopAddress()}}
+              <label for="inputShopState">Shop's State</label>
+              <input type="text" class="form-control" id="inputShopState" placeholder="{{shopState}}" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div *ngIf="shopCity!=city">
+              <label for="inputShopState">Shop's State</label>
+              <!-- <input type="text" class="form-control" id="inputShopState" placeholder="{{shopState}}" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}"> -->
+              <select name=slist class="form-control" id="inputShopState" disabled [(ngModel)]="shopState" [ngModelOptions]="{standalone: true}">
+               <option value=""></option>
+               <option *ngFor="let state of states" value={{state}}>{{state}}</option>
+             </select>
+           </div>
+         </div>
+         <div class="form-group col-md-2">
+          <label for="inputShopZip">Shop's Zip</label>
+          <input type="text" class="form-control" id="inputShopZip" placeholder="{{shopZip}}" disabled [(ngModel)]="shopZip" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <button type="submit" class="btn button justify-content-cente" (click)="submit()">Save</button>
+      <button type="button" class="btn button justify-content-cente" (click)="undisableTxt()">Edit</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>

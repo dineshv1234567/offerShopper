@@ -1,0 +1,70 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-3 help-sidebar border-right">
+			<a [routerLink]="['/help', 'FAQs']">FAQs</a>
+			<hr/>
+			<a [routerLink]="['/help', 'terms']">Terms and Conditions</a>
+			<hr/>
+		</div>
+		<div class="col-9 help-content">
+			<div [ngSwitch]="helpOption">
+				<div *ngSwitchCase="'terms'">
+					<h1>Terms and Conditions</h1>
+					<h3>Operating Agreement</h3>
+					<p>This Agreement contains the complete terms and conditions that apply to an individual's or entity's participation in the Offer Shopper Affiliate Program (the "Program"). As used in this Agreement, "we", "us", or "our" means Offer Shopper Internet Private Limited or any of our affiliate; parent; or group companies and our successors and assigns, as the case may be, and "you" means the applicant. Offer Shopper Site means, collectively, the Offer Shopper.com website, the Offer Shopper mobile website and the Offer Shopper mobile applications. "Your site" means your website where you will link to the Offer Shopper Site (and which you will identify in your Program application). Save for our obligation to pay referral fees under Section 4, which may be performed solely by us, we may cause any of our obligations under this Agreement to be fulfilled by any of our Affiliates (defined below), on our behalf.</p>
+					<ul>
+						<li>
+							<h6><strong>Enrollment in the Program</strong></h6>
+							<p>Participation in the Program is limited to parties that lawfully can enter into and form contracts under applicable law. For example, you have to be 18 years or above to enroll in this Program. To begin the enrollment process, you will submit a complete Program Application via the Offer Shopper Site. We will evaluate your application in good faith and will notify you of its acceptance or rejection.</p>
+						</li>
+						<li>
+							<h6><strong>Self Orders / Bulk Orders</strong></h6>
+							<p>Please also note that you may not purchase products during sessions initiated through the links on your site for your own use, for resale or commercial use of any kind. This includes orders for customers or on behalf of customers or orders for products to be used by you or your friends, relatives, or associates in any manner. The reason behind this policy is that the Offer Shopper Affiliate Program is an advertising program rather than a discount program. Our goal is to have our affiliates refer new customers to us in return for referral fees. Affiliates are not eligible for referral fees when they place orders themselves, or ask people they know to routinely place orders through their affiliate links so they can earn referral fees. If you are found in violation of these policies, then Offer Shopper has the right to terminate your registration, as well as revoke all payments linked to your account, unless you can show that the purchases were genuine.</p>
+						</li>
+						<li>
+							<h6><strong>Paid Search Ads campaigns</strong></h6>
+							<p>For Paid Search Ads through Google AdWords campaigns or of other search engines, Affiliates cannot send users directly to the OfferShopper Site through keyword bidding or other paid search activities. However, if your Paid Search Ads, without using any OfferShopper trademarks or variations and misspelling of such trademarks, send users to your own website and then your website displays affiliate links to OfferShopper Site, you may earn referral fees for eligible purchases made by users who click through your Paid Search Ads to your website and then click through to the OfferShopper Site. You shall not include OfferShopper domain name (www.OfferShopper.com) as Display URL or Destination / Landing Page URL in the ad copies of your AdWords campaigns. Any affiliate found / identified by us (we have systems in place to identify) directing users / traffic to OfferShopper Site directly through Paid Search Ads will be penalised. Non-compliance would not only lead to suspension of your affiliate account, but also cancellation of all pending commissions and commissions thereafter.</p>
+						</li>
+					</ul>
+					<h3>Product Links</h3>
+					<p>You may select one or more Products to list on your site using a variety of formats that we make available to you, such as text link format, graphical link format, customizable "widget" format, or "product preview" link format. A "Product" is any product listed on the OfferShopper Site that is fulfilled by us or on our behalf, a Digital Product (defined below), or any product sold by a third party seller on the OfferShopper Site. For each selected Product, you will display on your site a short description, review, or other reference. You will be responsible for the content, style, and placement of these references. You will provide a Special Link (as defined below) from each Product reference on your site to the corresponding OfferShopper Site online catalog entry. Each such link will connect directly to a single item in our online catalog. You may add or delete Products (and related links) from your site at any time without our approval. You may not use Special Links to link to the OfferShopper Site from references to products on your site that are not "Products" as defined above.</p>
+					<h3>Search Box Link</h3>
+					<p>You may provide a OfferShopper Site search box on your site that will permit your site visitors to view Products that are the results of their search query within the Search Box link or view results that link directly to a page on the OfferShopper Site that contains the results of their search query. We will provide you with technical specifications describing how to include an OfferShopper Site search box on your site.</p>
+					<h3>Any Page Link</h3>
+					<p>ou may provide a link on your site that will link to any particular page on the OfferShopper Site, provided that you properly use the special link formats provided on the OfferShopper Site as part of the Program to create such link. We will provide you with guidelines and graphical artwork to use in linking to the OfferShopper Site home page. To permit accurate tracking, reporting, and referral fee accrual, we will provide you with special "tagged" link formats to be used in all links between your site and the OfferShopper Site (and for purposes of this Agreement, the browser window described above that opens upon a user's clicking on a Quick-Click link is deemed a part of the OfferShopper Site, and any Quick-Click link is deemed a link between your site and the OfferShopper Site). You must ensure that each of the links between your site and the OfferShopper Site properly utilizes such special link formats. Links to the OfferShopper Site placed on your site pursuant to this Agreement and which properly utilize such special link formats are referred to as "Special Links." You will earn referral fees only with respect to activity on the OfferShopper Site occurring directly through Special Links; we will not be liable to you with respect to any failure by you to use Special Links, including to the extent that such failure may result in any reduction of amounts that would otherwise be paid to you pursuant to this Agreement. You acknowledge that, by participating in the Affiliate Program and placing any of the above links within your site, we may receive information from or about visitors to your site or communications between your site and those visitors.</p>
+					<h3>Miscellaneous</h3>
+					<p>This Agreement will be governed by the laws of the Indian Republic, without reference to rules governing choice of laws. You may not assign this Agreement, by operation of law or otherwise, without our prior written consent. Subject to that restriction, this Agreement will be binding on, inure to the benefit of, and be enforceable against the parties and their respective successors and assigns. Our failure to enforce your strict performance of any provision of this Agreement will not constitute a waiver of our right to subsequently enforce such provision or any other provision of this Agreement.</p>
+				</div>
+				<div *ngSwitchCase="'FAQs'">
+					<h1>FREQUENTLY ASKED QUESTIONS (FAQ'S)</h1>
+					<ol>
+						<li>
+							<h6><strong>What does offershopper.com do?</strong></h6>
+							<span>offershopper.com offers best deals and discount coupons from top brands in the country. Get deals through our website. Going shopping? Don’t forget to check out our deals to save money!</span>
+						</li>
+						<li>
+							<h6><strong>How can I purchase a deal?</strong></h6>
+							<span>Click on “Product”, you will be redirected to a page where you find the information about product. You have two options Add to CarryBag and Add to wishlist.Click "Add to Carrybag" and a coupon will be generated.Now Go to shop and buy the product with coupon reference.</span>
+						</li>
+						<li>
+							<h6><strong>Do I need to register to purchase the deal?</strong></h6>
+							<span>You have to register to buy a deal.You will need to provide few personal details such as name, email id and phone number.We ask for personal details only to ensure best customer services.</span>
+						</li>
+						<li>
+							<h6><strong>Do I need to use the coupon the day I get it?</strong></h6>
+							<span>No. The coupons are usually valid. There is no expiry date for any coupon</span>
+						</li>
+						<li>
+							<h6><strong>Are there any "hidden charges"?</strong></h6>
+							<span>No. There are no hidden costs and conditions. Pay for the price shown in product details and get the best products at reasonable price.</span>
+						</li>
+						<li>
+							<h6><strong>What payment modes do I have?</strong></h6>
+							<span>No payment gateway is given to the user via Offer Shopper. In case you want to buy the product you can use map navigation provided by our site and reach the shop</span>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

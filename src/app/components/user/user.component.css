@@ -1,0 +1,15 @@
+@media (min-width: 768px) {
+	.user-sidebar {
+		position: fixed;
+		width: 270px;
+		height: 100%;
+	}
+
+	.user-content {
+		margin-left: 270px; 
+	}
+
+	.active {
+		border: 1px solid #018b8b;
+	}
+}

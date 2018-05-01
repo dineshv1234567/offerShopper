@@ -1,0 +1,112 @@
+.wishlist-header {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	}
+.wishlist-header-content {
+	  width: 100%;
+	  height: 100%;
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  color:white;
+	}
+@media (max-width: 767.98px) {
+	.wishlist-header-content {
+	  font-size: 2rem;
+	}
+}
+
+@media (min-width: 768px){
+	.wishlist-header-content {
+	  font-size: 3rem;
+	}
+}
+
+.description-container {
+	font-size: 0.9rem;
+	margin-top: 1rem;
+}
+.offer {
+	height: 200px;
+}
+
+.offer-center {
+	margin: auto;
+	position: relative;
+}
+
+.display-offer-image img{
+	width: 110px;
+}
+
+.offer-image {
+	padding-top: 27px;
+	padding-bottom: 25px;
+	padding-left: 30px;
+}
+
+@media (max-width: 575.98px) { 
+	.show-offer-border {
+		margin-left: -7px;
+		margin-right: -7px;
+	}
+}
+
+.container {
+	position: relative;
+}
+
+.container-button {
+	position: absolute;
+	right: 7px;
+	bottom: 7px;
+	border-radius: 22px;
+}
+
+.container-button-small {
+	position: absolute;
+	right: 15px;
+	bottom: 0;
+	border-radius: 22px;
+}
+
+del {
+	color: #999;
+	font-size: 13px;
+}
+
+.offer-deleted-price-small {
+	color: #999;
+	font-size: 16px;
+}
+
+.text-before-del-large {
+	color: #999;
+	font-size: 15px;
+}
+
+.offer-small {
+	position: relative;
+}
+
+.offer-discount-small {
+	position: absolute;
+	bottom: 8px;
+	left: 8px;
+	color: red;
+}
+
+.offer-discount-large {
+	color: red;
+}
+
+.offer-title-large {
+	width: 100%;
+	height: 100%;
+}
+
+.wishlist-offer {
+	padding-left: 10px;
+	padding-right: 10px;
+}

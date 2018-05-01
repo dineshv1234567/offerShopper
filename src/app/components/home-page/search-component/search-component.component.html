@@ -1,0 +1,55 @@
+<!-- carousel -->
+<div class="container-fluid">
+  <div class="row">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div>
+          <form id="search" class="form-inline my-2 my-lg-0">
+              <select name="category-selected" class="dropdown btn btn-light dropdown-toggle mr-0 col-md-2 col-lg-2 col-sm-2" [(ngModel)]="category" >
+                <option class="dropdown-item" selected>All</option>
+                <option class="dropdown-item">sports</option>
+                <option class="dropdown-item">clothing</option>
+                <option class="dropdown-item">food</option>
+              </select>
+            <input id="input" list="suggestions" name="query" [(ngModel)]="query" class="form-control mr-0 search-box col-md-4 col-lg-8 col-sm-2" (keyup)="searchTerm$.next($event.target.value)" autocomplete="off" type="text"
+            placeholder="Search for your favorite deals here" aria-label="Search">
+            <!-- search button -->
+            <!-- on click of button show values for category and field-->
+
+             <button id="searchButton" type="button" [routerLink] ="['/search/',category,query]" class="btn btn-light search-btn col-md-1 col-sm-1 col-lg-2"><i class="fas fa-search"></i></button>
+
+          </form>
+        </div>
+        <div class="carousel-image carousel-item active">
+          <img class="homepage-image d-block w-100" src="../../../../assets/images/carousel_1.jpg" alt="First slide">
+        </div>
+        <div class="carousel-image carousel-item">
+          <img class="homepage-image d-block w-100" src="../../../../assets/images/carousel_2.jpeg" alt="Second slide">
+        </div>
+        <div class="carousel-image carousel-item">
+          <img class="homepage-image d-block w-100" src="../../../../assets/images/carousel_3.jpeg" alt="Third slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- associating data list with the search query -->
+<datalist id="suggestions">
+  <option *ngFor="let result of results| slice:0:9">
+    {{result}}
+  </option>
+</datalist>

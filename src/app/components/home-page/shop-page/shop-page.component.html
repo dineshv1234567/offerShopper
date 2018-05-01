@@ -1,0 +1,55 @@
+<!-- search bar   -->
+<app-search-bar></app-search-bar>
+
+
+<!-- results component being called -->
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <!-- dropdown for sorting -->
+
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sorting 
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        
+        <a class="dropdown-item" (click)="sortBy('priceHL')">Price(Highest->Lowest)</a>
+        <a class="dropdown-item" (click)="sortBy('priceLH')">Price(Lowest->Highest)</a>
+  
+        <a class="dropdown-item" (click)="sortBy('discountHL')">Discount(Highest->Lowest)</a>
+        <a class="dropdown-item" (click)="sortBy('discountLH')">Discount(Lowest->Highest)</a>
+  
+      </div>
+    </div>
+    <!-- end -->
+
+    <!-- filters -->
+
+    <ion-range-slider #sliderElement
+          type="double"
+          max="100"
+          min="0"
+          from="10"
+          from_min="0"
+          from_max="90"
+          from_shadow="true"
+          to="70"
+          to_min="10"
+          to_max="100"
+          to_shadow="true"
+          grid="true"
+          grid_num="10"
+          prefix="Discount: "
+          postfix="%"
+          decorate_both="false"
+          (onChange)="myOnChange($event)">
+        </ion-range-slider>
+    <!-- end -->
+
+    </div>
+    <div class="col-10">
+      <app-seach-results [results]="results"></app-seach-results>
+    </div>
+  </div> 
+</div>

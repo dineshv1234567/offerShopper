@@ -1,0 +1,65 @@
+
+<div class="wishlist-header">
+  <img src="../../../../../assets/wishcart_jumbo.png" class="img-fluid">
+  <div class="wishlist-header-content d-flex align-items-center justify-content-center">
+    WISHLIST
+  </div>
+</div>
+<div class="wishlist-offer">
+  <div *ngIf="wishlistOffers.length">
+    <div class="container mb-2 description-container">
+      <div class="row">
+        <div class="col-md-3 col-sm-4 col-6">
+        </div>
+        <div class="col-md-5 col-sm-4 col-6 d-none d-sm-block text-left">
+          <b>PRODUCT</b>
+        </div>
+        <div class="col-md-2 col-sm-4 d-none d-sm-block">
+          <b>PRICE</b>
+        </div>
+        <div class="col-md-2 d-none d-md-block text-center">
+          <b>VALIDITY</b>
+        </div>
+      </div>
+    </div>
+    <div *ngFor=" let offerList of wishlistOffers">
+      {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
+      <div class="container mb-1">
+        <div class="row offer border show-offer-border">
+          <div class="col-md-3 col-sm-4 col-6 offer-image bg-white">
+              <div class="card display-offer-image bg-white border-0">
+                <img class="card-img" src="../../../assets/image.jpg" alt="Card image">
+              </div>
+          </div>
+          <div class="col-md-5 col-sm-4 col-6 d-none d-sm-block offer-center">
+            <button class="btn btn-success" [routerLink]="['/', 'vendorInfo',offerList.userId]" ><b>{{offerList.offerTitle}}</b></button>
+          </div>
+          <div class="col-md-5 col-sm-4 mt-4 pl-2 col-6 d-block d-sm-none">
+            <button class="btn btn-success" [routerLink]="['/', 'vendorInfo',offerList.userId]" ><b>{{offerList.offerTitle}}</b></button>
+            <br/>
+            <div class="offer-deleted-price-small">MRP:<del>₹{{offerList.offerOriginalPrice}}</del></div>
+            ₹{{priceAfterDiscount}}       
+            <div class="offer-discount-small d-block d-sm-none border border-danger rounded px-2">
+              {{offerList.offerDiscount}}% OFF
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-4 d-none d-sm-block offer-center">
+            <dl>
+              <dd class="offer-discount-large">{{offerList.offerDiscount}}% off</dd>
+              <dd><div class="text-before-del-large">MRP:</div><del>₹{{offerList.offerOriginalPrice}}</del>  ₹{{priceAfterDiscount}}</dd>
+              <dd></dd>
+            </dl>
+          </div>
+          <div class="col-md-2 d-none d-md-block offer-center">
+            {{offerList.offerValidity| date}}
+          </div>
+          <button class="btn btn-dark my-2 my-sm-0 container-button d-none d-md-block" type="button" (click)="deleteOffer(offerList.offerId,offerList.userId)"><i class="fas fa-trash-alt"></i> Delete</button>
+          <button class="btn btn-dark my-2 my-sm-0 container-button-small d-block d-sm-none" type="button" (click)="deleteOffer(offerList.offerId,offerList.userId)"><i class="fas fa-trash-alt"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!wishlistOffers.length" class="d-flex justify-content-center">
+    <h1>Wishlist Empty</h1>
+  </div>
+</div>

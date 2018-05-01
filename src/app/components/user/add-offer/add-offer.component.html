@@ -1,0 +1,189 @@
+<div class="add-offer">
+  <div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-success d-flex justify-content-end" data-toggle="modal" data-target="#couponVerifyModal">validatecoupon</button>
+      <button type="button" class="btn btn-success d-flex justify-content-end" data-toggle="modal" data-target="#myAddofferModal">Add Offer</button>
+  </div>
+  <div class="container mt-2">
+    <div class="row ">
+      <div class="col-md-4 add-offer-list justify-content-center d-flex " *ngFor="let offer of offers">
+        <div class="card border border-dark add-offer-card ">
+          <div class="card-body ">
+            <h5 class="card-title">{{offer.offerTitle.toUpperCase()}}</h5>
+            <p class="card-text">
+                Validity:{{offer.offerValidity | date}}
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{offer.offerDescription}}</li>
+            <li class="list-group-item">Rs{{offer.originalPrice}}</li>
+            <li class="list-group-item">{{offer.discount}}%</li>
+          </ul>
+          <div class="card-body">
+            <button type="button" class="btn btn-secondary" (click)="updateOffer(offer.offerId)" data-toggle="modal" data-target="#myModal">Update</button>
+            <button type="button" class="btn btn-dark" (click)="deleteOffer(offer.offerId)">Delete</button>
+          </div>
+        </div>
+      </div>
+    <div>
+  </div>
+</div>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+     <div class="modal-header ">
+          <h4 class="modal-title ">UPDATE OFFER</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="offerCategories">Categories</label>
+              <input type="offerCategories" class="form-control" id="offerCategories" placeholder="{{offerCategories}}" [(ngModel)]="offerCategories" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="discount">Discount Percentage</label>
+              <input type="discount" class="form-control" id="discount" placeholder="{{discount}}" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="keywords"> keywords</label>
+              <input type="keywords" class="form-control" id="keywords" placeholder="{{keywords}}" [(ngModel)]="keywords" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="offerValidity"> Validity</label>
+              <input type="offerValidity" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="offerDescription"> Product Description</label>
+              <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="offerTerms">Terms and Conditions</label>
+              <input type="offerTerms" class="form-control" id="offerTerms" placeholder="{{offerTerms}}" [(ngModel)]="offerTerms" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="offerTitle">Offer Name</label>
+              <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="originalPrice">Original Price</label>
+              <input type="originalPrice" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <button type="submit" class="btn button justify-content-center" data-dismiss="modal" (click)="submit()">Submit</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (Click)='reset()'>Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div id="myAddofferModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header ">
+          <h4 class="modal-title ">ADD OFFER</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="offerCategories">Categories</label>
+              <input type="offerCategories" class="form-control" id="offerCategories" placeholder="{{offerCategories}}" [(ngModel)]="offerCategories" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="discount">Discount Percentage</label>
+              <input type="Discount" class="form-control" id="discount" placeholder="{{discount}}" [(ngModel)]="discount" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="keywords"> Keywords</label>
+              <input type="keywords" class="form-control" id="keywords" placeholder="{{keywords}}" [(ngModel)]="keywords" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="offerValidity">Validity</label>
+              <input type="date" class="form-control" id="offerValidity" placeholder="{{offerValidity}}" [(ngModel)]="offerValidity" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="offerDescription">Description</label>
+              <input type="offerDescription" class="form-control" id="offerDescription" placeholder="{{offerDescription}}" [(ngModel)]="offerDescription" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="offerTerms">Terms and Conditions</label>
+              <input type="offerTerms" class="form-control" id="offerTerms" placeholder="{{offerTerms}}" [(ngModel)]="offerTerms" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+           <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="offerTitle">Offer Name</label>
+              <input type="offerTitle" class="form-control" id="offerTitle" placeholder="{{offerTitle}}" [(ngModel)]="offerTitle" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="originalPrice">Price of Product</label>
+              <input type="originalPrice" class="form-control" id="originalPrice" placeholder="{{originalPrice}}" [(ngModel)]="originalPrice" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+           <div class="form-row">
+             <div class="form-group col-md-6">
+          
+             </div>
+           </div>
+          <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal" (click)="getOffer()">addOffer</button>
+      </form>
+      </div>
+            <form >
+           <label>Upload a file </label><br>
+   <input type="file" name="file" [(ngModel)]="image"><br>
+   <input type="submit" value="Submit" (click)="addImage()">
+
+</form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark btn-default" data-dismiss="modal">Close
+        </button>
+      </div>
+    </div>
+    </div>
+</div>
+
+</div>
+<div id="couponVerifyModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header ">
+          <h4 class="modal-title ">verify coupon</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="coupon">COUPON</label>
+              <input type="coupon" class="form-control" id="coupon" [(ngModel)]="coupon" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <button type="submit" class="btn  btn-secondary button justify-content-center" data-dismiss="modal" (click)="couponValidate()">VALIDATE</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    </div>
+</div>

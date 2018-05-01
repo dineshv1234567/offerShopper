@@ -1,0 +1,210 @@
+<!-- Register as vendor-->
+<div class="py-5" >
+    <div class="container">
+      <form  [formGroup]="form">
+        <h1>Registration Form</h1><br>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Enter First Name Here.." formControlName="firstName" class="form-control">
+              <div *ngIf="form.get('firstName').touched && form.get('firstName').invalid" class="alert-msg">
+              <div *ngIf="form.get('firstName').hasError('required')">
+                First Name is required!
+              </div>
+              <div *ngIf="form.get('firstName').hasError('pattern')">
+                Invalid Name!
+              </div></div>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Enter Last Name Here.." formControlName="lastName" class="form-control">
+                   <div *ngIf="form.get('lastName').touched && form.get('lastName').invalid" class="alert-msg">
+              <div *ngIf="form.get('lastName').hasError('required')">
+                Last Name is required!
+              </div>
+              <div *ngIf="form.get('lastName').hasError('pattern')">
+                Invalid Last Name!
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label>Email</label>
+              <input type="email" id="email" placeholder="Email" formControlName="email" class="form-control" >
+              <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert-msg">
+              <div *ngIf="form.get('email').hasError('required')">
+                Email is required!
+              </div>
+              <div *ngIf="form.get('email').hasError('email') && !form.get('email').hasError('required')">
+                Invalid Email
+              </div>
+              </div>
+            </div>
+
+            <div class="col-sm-5 form-group col-md-6">
+              <label>Password</label>
+              <input type="password" placeholder="Password" formControlName="password" class="form-control" >
+                 <div *ngIf="form.get('password').touched && form.get('password').invalid" class="alert-msg">
+              <div *ngIf="form.get('password').hasError('required')">
+                Password is required!
+              </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-4">
+              <label>Contact Number</label>
+              <input type="phone" id="phone" placeholder="Contact Number" formControlName="contact" class="form-control">
+                   <div *ngIf="form.get('contact').touched && form.get('contact').invalid" class="alert-msg">
+              <div *ngIf="form.get('contact').hasError('minlength') && !form.get('contact').hasError('pattern')">
+                Less than 10 digits
+              </div>
+              <div *ngIf="form.get('contact').hasError('maxlength') && !form.get('contact').hasError('pattern')">
+               More than 10 digits
+              </div>
+              <div *ngIf="form.get('contact').hasError('pattern')">
+                Invalid Contact
+              </div>
+            </div>
+                  </div>
+            <div class="form-group col-sm-4">
+              <label>DOB</label>
+              <input type="date" id="birthDate" formControlName="DOB" class="form-control"> </div>
+
+
+
+            <div class="form-group col-sm-3">
+              <label>Gender</label>
+              <div class="form-inline">
+                <label class="form-control">
+              <input type="radio" name="gender" value='Male' formControlName="gender">Male</label>
+              <label class="form-control">
+      <input type="radio" name='gender' value='Female' formControlName="gender">Female</label>
+    </div> 
+  </div>
+</div>
+ 
+          <div class="form-group">
+            <label>Address</label>
+            <textarea placeholder="Enter Address Here.." rows="3" formControlName="address" class="form-control" id="Address"></textarea>
+          </div>
+
+          <div class="row">
+  
+            <div class="col-sm-4 form-group">
+              <label>State</label>
+      <select name=slist formControlName="state" class="form-control" id="state">
+   <option value="">----Select State------</option>
+    <option *ngFor="let state of states" value={{state}}>{{ state }}</option>
+</select>
+               </div>
+                         <div class="col-sm-4 form-group">
+              <label>City</label>
+             
+  <select name=slist formControlName="city" class="form-control" id="state">
+   <option value="">----Select City------</option>
+    <option *ngFor="let city of cities" value={{city}}>{{ city }}</option>
+    </select>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Zip</label>
+              <input type="text" placeholder="Enter Zip Code Here.." formControlName="zip" class="form-control" id="ZipCode">
+               <div *ngIf="form.get('zip').touched && form.get('zip').invalid" class="alert-msg">
+              <div *ngIf="form.get('zip').hasError('pattern')">
+               ZipCode invalid!
+              </div></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="checkbox col-sm-2">
+              <input type="checkbox" formControlName="sameAddress" (click)="setAddress()" id="SameCheckbox" value="SameAsAbove"> Same as above </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Vendor Address</label>
+            <textarea placeholder="Enter Address Here.." rows="3" formControlName="vendorAddress" class="form-control" id="VendorAddress"></textarea>
+
+          <div *ngIf="form.get('vendorAddress').touched && form.get('vendorAddress').invalid" class="alert-msg">
+              <div *ngIf="form.get('vendorAddress').hasError('required')">
+                Address is required!
+              </div>
+            </div></div>
+
+          <div class="row">
+        
+
+            <div class="col-sm-4 form-group">
+              <label>State</label>
+             <select name=slist formControlName="vendorState" class="form-control" id="VendorState">
+   <option value="">----Select State------</option>
+    <option *ngFor="let state of states" value={{state}}>{{ state }}</option>
+ 
+</select>
+                  <div *ngIf="form.get('vendorState').touched && form.get('vendorState').invalid" class="alert-msg">
+              <div *ngIf="form.get('vendorState').hasError('required')">
+                State is required!
+              </div>
+              </div>
+            </div>
+                <div class="col-sm-4 form-group">
+              <label>City</label>
+               <select name=slist formControlName="vendorCity" class="form-control" id="state">
+   <option value="">----Select City------</option>
+    <option *ngFor="let city of cities" value={{city}}>{{ city }}</option>
+</select>
+                  <div *ngIf="form.get('vendorCity').touched && form.get('vendorCity').invalid" class="alert-msg">
+              <div *ngIf="form.get('vendorCity').hasError('required')">
+                City is required!
+              </div>
+            </div>
+             </div>
+            <div class="col-sm-4 form-group">
+              <label>Zip</label>
+              <input type="text" placeholder="Enter Zip Code Here.." formControlName="vendorZip" class="form-control" id="VendorZipCode">
+              <div *ngIf="form.get('vendorZip').touched && form.get('vendorZip').invalid" class="alert-msg">
+              <div *ngIf="form.get('vendorZip').hasError('required')">
+                ZipCode is required!
+              </div>
+              <div *ngIf="form.get('vendorZip').hasError('pattern')">
+                Invalid ZipCode!
+              </div>
+            </div>
+             </div>
+ </div>
+
+          <div class="row">
+            <div class="form-group col-sm-5">
+              <label>Vendor Contact Number</label>
+              <input type="phone" id="vendorPhone" placeholder="Contact Number"  formControlName="vendorContact" class="form-control">
+               <div *ngIf="form.get('vendorContact').touched && form.get('vendorContact').invalid" class="alert-msg">
+              <div *ngIf="form.get('vendorContact').hasError('required')">
+               Contact is required!
+              </div>
+              <div *ngIf="form.get('vendorContact').hasError('minlength') && !form.get('vendorContact').hasError('pattern')">
+                Less than 10 digits
+              </div>
+              <div *ngIf="form.get('vendorContact').hasError('maxlength') && !form.get('vendorContact').hasError('pattern')">
+               More than 10 digits
+              </div>
+              <div *ngIf="form.get('vendorContact').hasError('pattern')">
+               Invalid Contact!
+              </div>
+            </div>
+          </div>
+        </div>
+          <!-- /.form-group -->
+          <div class="row">
+            <div class="form-group col-sm-3 col-sm-offset-3">
+              <button type="submit"  class="btn btn-primary btn-block" (click)="registerVendor()" [disabled]="form.invalid">Register</button>
+            </div>
+              <!--  -->
+          </div>
+        </div>
+      </form>
+    </div>
+</div>
+
+

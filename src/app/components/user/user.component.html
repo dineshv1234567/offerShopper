@@ -1,0 +1,140 @@
+<div class="user-sidebar border-right d-flex justify-content-center">
+  <ul class="nav nav-pills flex-column ">
+    <li class="text-center" [routerLink]="['/user', 'userdetails']">
+      <div *ngIf="userList=='userdetails'" class="active">
+        Personal Information
+      </div>
+      <div *ngIf="userList!='userdetails'">
+        Personal Information
+      </div>
+    </li>
+    <li class="text-center" [routerLink]="['/user', 'carrybag']">
+      <div *ngIf="userList=='carrybag'" class="active">
+        Carry Bag
+      </div>
+      <div *ngIf="userList!='carrybag'">
+        Carry Bag
+      </div>
+    </li>
+    <li class="text-center" [routerLink]="['/user', 'wishlist']">
+      <div *ngIf="userList=='wishlist'" class="active">
+        Wish List
+      </div>
+      <div *ngIf="userList!='wishlist'">
+        Wish List
+      </div>
+    </li>
+    <li class="text-center" [routerLink]="['/user', 'subscriptionlist']">
+      <div *ngIf="userList=='subscriptionlist'" class="active">
+        Subscriptions
+      </div>
+      <div *ngIf="userList!='subscriptionlist'">
+        Subscriptions
+      </div>
+    </li>
+    <li *ngIf="role=='vendor'" class="text-center" [routerLink]="['/user', 'add-offer']">
+      <div *ngIf="userList=='add-offer'" class="active">
+        Add Offers
+      </div>
+      <div *ngIf="userList!='add-offer'">
+        Add Offers
+      </div>      
+    </li>
+    <li *ngIf="role=='customer'" class="text-center" [routerLink]="['/user', 'userdetails']">
+      Be a Seller
+    </li>
+    {{active}}
+  </ul>
+</div>
+<div class="user-content">
+  <div [ngSwitch]="userList">
+    <div *ngSwitchCase="'userdetails'">
+      <app-userdetails></app-userdetails>
+    </div>
+    <div *ngSwitchCase="'carrybag'">
+      <app-carrybag></app-carrybag>
+    </div>
+    <div *ngSwitchCase="'wishlist'">
+      <app-wishlist></app-wishlist>
+    </div>
+    <div *ngSwitchCase="'subscriptionlist'">
+      <app-subscription-list></app-subscription-list>
+    </div>
+    <div *ngSwitchCase="'add-offer'">
+      <app-add-offer></app-add-offer>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="sidenav align-self-center">
+  <div class="sidenav-back-color d-none d-sm-block border">
+    <div class="sidenav-large-content">
+      <ul class="nav nav-pills flex-column">
+        <li class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'userdetails']" style="vertical-align:middle">
+          <span>Personal Information</span>
+        </li>
+        <li class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'carrybag']">
+          Carry Bag
+        </li>
+        <li class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'wishlist']">
+          Wish List
+        </li>
+        <li class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'subscriptionlist']">
+          Subscriptions
+        </li>
+        <li *ngIf="role=='vendor'" class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'add-offer']">
+          Add Offers
+        </li>
+        <li *ngIf="role=='customer'" class="btn btn-light sidebar-text d-flex justify-content-center" [routerLink]="['/user', 'userdetails']">
+          Be a Seller
+        </li>
+      </ul>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light d-block d-sm-none">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item sidebar-text" routerLink='/userprofile'>
+          Personal Information
+        </li>
+        <li class="nav-item sidebar-text" routerLink='/userprofile'>
+          Carry Bag
+        </li>
+        <li class="nav-item sidebar-text" routerLink='/userprofile'>
+          Wish List
+        </li>
+        <li class="nav-item sidebar-text">
+          Subscriptions
+        </li>
+        <li class="nav-item sidebar-text">
+          Add Offers
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="main mb-2">
+  <div [ngSwitch]="userList">
+    <div *ngSwitchCase="'userdetails'">
+      <app-userdetails></app-userdetails>
+    </div>
+    <div *ngSwitchCase="'carrybag'">
+      <app-carrybag></app-carrybag>
+    </div>
+    <div *ngSwitchCase="'wishlist'">
+      <app-wishlist></app-wishlist>
+    </div>
+    <div *ngSwitchCase="'subscriptionlist'">
+      <app-subscription-list></app-subscription-list>
+    </div>
+    <div *ngSwitchCase="'add-offer'">
+      <app-add-offer></app-add-offer>
+    </div>
+  </div>
+</div>
+ -->

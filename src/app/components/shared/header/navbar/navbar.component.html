@@ -1,0 +1,85 @@
+<!-- Below commented by Girish - Do not delete-->
+
+<!-- <div class="alert alert-warning alert-dismissible fade show alert-styling" role="alert">
+	<p class="alert-content">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+	</p>
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div> -->
+
+<header class="header-shadow">
+  <!-- Navbar -->
+  <nav class="navbar mt-0 navbar-expand-lg navbar-dark bg-white">
+    <!-- Logo -->
+    <a [routerLink]="['/homepage']"><span class="logo justify-self-left">Offer<font class="dot">.</font>Shopper</span></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="col-8 d-flex  justify-content-center">
+      <div class="collapse navbar-collapse justify-content-center " id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-0 mb-0 mt-2 mt-lg-0 justify-self-center">
+          <li class="nav-item nav-text ml-3">
+            <a class="nav-link text-dark active" routerLink="/homepage">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item nav-text">
+            <a class="nav-link" routerLink="/search"><font class="text-pride">Shop</font></a>
+          </li>
+          <li class="nav-item nav-text">
+            <a class="nav-link text-dark" href="../../static/contact.html">Contact</a>
+          </li>
+        </ul>
+        <!-- <div class="list-group navbar-nav mr-0 mb-0 mt-2 mt-lg-0" id="list-tab" role="tablist">
+          <
+          <a class="list-group-item list-group-item-action active" data-toggle="list" routerLink="/homepage" role="tab">Home</a>
+          <a class="list-group-item list-group-item-action" data-toggle="list" routerLink="/search" role="tab">Shop</a>
+          <a class="list-group-item list-group-item-action" data-toggle="list" routerLink="/homepage" role="tab">Contact</a>
+        </div> -->
+      </div>
+
+      <div class="large mt-2">
+        <ul class="profile mb-0">
+          <div *ngIf="login">
+            <li class="pt-2">
+              <a [routerLink]="['/user', 'userdetails']"><span class="pr-3">{{user}}</span><i class="far fa-user"></i></a>
+            </li>
+          </div>
+          <div *ngIf="!login">
+            <li class="pt-2">
+              <a [routerLink]="['/login']"><i class="far fa-user"></i></a>
+            </li>
+          </div>
+          <li *ngIf="!login" class="nav-item dropdown ml-3">
+            <a class="nav-link dropdown-toggle m-0" [routerLink]="['/login']" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+            <div *ngIf="login" class="dropdown-menu m-0 p-0 justify-content-left" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" [routerLink]="['/user', 'wishlist']">Wishlist</a>
+              <a class="dropdown-item" [routerLink]="['/user', 'carrybag']">Carrybag</a>
+            </div>
+          </li>
+          <li *ngIf="login" class="nav-item dropdown ml-3">
+            <a class="nav-link dropdown-toggle m-0 px-2" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+            <div class="dropdown-menu m-0 p-0 justify-content-left" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" [routerLink]="['/user', 'wishlist']">Wishlist</a>
+              <a class="dropdown-item" [routerLink]="['/user', 'carrybag']">Carrybag</a>
+            </div>
+          </li>
+          <div *ngIf="login">
+            <li class="nav-text">
+              <a class="text-dark font-weight-bold logout" (click)="logout()" routerLink="/homepage">Logout</a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+
+</header>

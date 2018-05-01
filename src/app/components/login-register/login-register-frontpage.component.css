@@ -1,0 +1,45 @@
+.alert-msg{
+	color: red;
+	font-size: 12px;
+}
+
+@media only screen and (max-width: 320px){
+h1{
+	font-size: 35px;
+}
+}
+
+.cardPadding{
+padding: 4.5rem;
+}
+
+.loginContainer{
+	min-width: 320px;
+	min-height: 500px;
+}
+
+@media only screen and (max-width: 367px){
+	h1{
+	font-size: 28px;
+}
+}
+@media only screen and (min-width: 576px){
+	h1{
+	font-size: 28px;
+}
+label,a{
+	font-size: 15px;
+}
+.card-body{
+	padding: 0px;
+}
+
+.bg-pride{
+	background:#018b8b;
+}
+
+.text-pride{
+	color:#bd2121;
+}
+
+}

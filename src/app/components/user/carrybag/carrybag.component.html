@@ -1,0 +1,136 @@
+<div class="wishlist-header">
+  <img src="../../../../assets/wishcart_jumbo.png" class="img-fluid">
+  <div class="wishlist-header-content d-flex align-items-center justify-content-center">
+    CARRYBAG
+  </div>
+</div>
+<div *ngIf="carryBagOffers.length">
+  <div class="container mb-2 mx-2 description-container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4 col-6">
+      </div>
+      <div class="col-md-5 col-sm-4 col-6 d-none d-sm-block text-left">
+        <b>PRODUCT</b>
+      </div>
+      <div class="col-md-2 col-sm-4 d-none d-sm-block">
+        <b>PRICE</b>
+      </div>
+      <div class="col-md-2 d-none d-md-block text-center">
+        <b>VALIDITY</b>
+      </div>
+    </div>
+  </div>
+  <div *ngFor=" let offerList of carryBagOffers">
+    {{productPrice(offerList.offerOriginalPrice,offerList.offerDiscount)}}
+    <div class="container mb-1 mx-2">
+      <div class="row offer border show-offer-border">
+        <div class="col-md-3 col-sm-4 col-6 offer-image bg-white">
+            <div class="card display-offer-image bg-white border-0">
+              <img class="card-img" src="../../../assets/image.jpg" alt="Card image">
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-4 col-6 d-none d-sm-block offer-center">
+          <button class="btn btn-success" [routerLink]="['/', 'vendorInfo',offerList.userId]" ><b>{{offerList.offerTitle}}</b></button>
+        </div>
+        <div class="col-md-5 col-sm-4 mt-4 pl-2 col-6 d-block d-sm-none">
+          <button class="btn btn-success" [routerLink]="['/', 'vendorInfo',offerList.userId]" ><b>{{offerList.offerTitle}}</b></button>
+          <br/>
+          <div class="offer-deleted-price-small">MRP:<del>₹{{offerList.offerOriginalPrice}}</del></div>
+          ₹{{priceAfterDiscount}}
+          <div class="offer-discount-small d-block d-sm-none border border-danger rounded px-2">
+            {{offerList.offerDiscount}}% OFF
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4 d-none d-sm-block offer-center">
+          <dl>
+            <dd class="offer-discount-large">{{offerList.offerDiscount}}% off</dd>
+            <dd><div class="text-before-del-large">MRP:</div><del>₹{{offerList.offerOriginalPrice}}</del>  ₹{{priceAfterDiscount}}</dd>
+            <dd></dd>
+          </dl>
+        </div>
+        <div class="col-md-2 d-none d-md-block offer-center">
+          {{offerList.offerValidity | date}}
+        </div>
+        <div class="container-button d-none d-md-block">
+          <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="couponGenerate(offerList.userId,offerList.offerId,offerList.vendorId)"> Generate Coupon</button>
+          <div data-toggle="modal" data-target="#couponModal" #coupModal ></div>
+
+
+
+
+          <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="deleteOffer(offerList.userId,offerList.offerId)"><i class="fas fa-trash-alt"></i> Delete</button>
+          
+          <button class="btn btn-dark my-2 my-sm-0 " type="button" (click)="checkFeedbackExistence(offerList.offerId,offerList.userId)">Add Feedback</button>
+          <div data-toggle="modal" data-target="#feedbackModal"  #myModal ></div>
+          <div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div *ngIf="!carryBagOffers.length" class="carryempty">
+  <h1>empty</h1>
+  <!-- <div class="modal fade" id="overlay">
+      <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-body ">
+                  <p class="ifcarryempty"><i class="fas fa-shopping-cart"></i>It Seems Like Your Carrybag Is Empty</p>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+     </div>
+   </div> -->
+</div>
+
+
+<div id="feedbackModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="rating"> rating</label>
+              <input type="rating" class="form-control" id="rating" [(ngModel)]="rating" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="feedback"> feedback</label>
+              <input type="feedback" class="form-control" id="feedback" [(ngModel)]="feedback" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <button type="button" class="btn button justify-content-cente" (click)="addfeedback()">Submit</button>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div id="couponModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>your coupon id is</p>{{couponId}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

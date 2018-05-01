@@ -1,0 +1,33 @@
+<div class="wishlist-header">
+  <img src="../../../../../assets/wishcart_jumbo.png" class="img-fluid">
+  <div class="wishlist-header-content d-flex align-items-center justify-content-center">
+    SUBSCRIPTION LIST
+  </div>
+</div>
+<div *ngIf="subscribeServiceList; else elseblock;then thenblock;"></div>
+<ng-template #thenblock>
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col-md-4 d-flex justify-content-center mb-2" *ngFor="let subscriptionlist of subscribeServiceList">
+          <!-- Content -->
+        <div class="card vendor-card" style="width: 18rem;">
+          <div class="card-body  text-center">
+              <h5 class="card-title shopname" [routerLink]="['/','vendorInfo',subscriptionlist.vendorId]">{{subscriptionlist.shopName}}</h5>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"  aria-pressed="false" autocomplete="off" [routerLink]="['/', 'vendorInfo',subscriptionlist.vendorId]">
+                See More
+              </button>
+              <button type="button" class="btn btn-primary bg-dark" data-toggle="button" aria-pressed="false"  autocomplete="off" (click)="deleteSubscriptions(subscriptionlist.userId,subscriptionlist.vendorId)">
+                Delete
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #elseblock>
+  <div class="container mt-2">
+   <h4>Oops! You are not subscribed to any vendor for now.</h4>
+  </div>
+</ng-template>

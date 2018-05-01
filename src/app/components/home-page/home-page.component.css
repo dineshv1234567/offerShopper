@@ -1,0 +1,22 @@
+.card-img-top {
+	width: 350px;
+	height: 350px;
+}
+
+.originalPrice {
+	text-decoration: line-through;
+}
+/* 
+.card {
+	max-width: 400px;
+	max-height: 600px;
+	cursor: pointer;
+} */
+
+.card-w{
+	cursor: pointer;
+	max-width: 22rem;
+	min-width: 22rem;
+	min-height: 28rem;
+	max-height: 28rem;
+}
